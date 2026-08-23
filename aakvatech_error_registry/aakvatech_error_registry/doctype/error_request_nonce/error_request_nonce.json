@@ -1,11 +1,12 @@
 {
  "actions": [],
- "autoname": "field:name",
+ "autoname": "hash",
  "creation": "2026-08-23 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
- "field_order": ["site_uuid","nonce","request_timestamp"],
+ "field_order": ["nonce_hash","site_uuid","nonce","request_timestamp"],
  "fields": [
+  {"fieldname":"nonce_hash","fieldtype":"Data","label":"Nonce Hash","reqd":1,"read_only":1,"unique":1},
   {"fieldname":"site_uuid","fieldtype":"Data","label":"Site UUID","reqd":1,"read_only":1},
   {"fieldname":"nonce","fieldtype":"Data","label":"Nonce","reqd":1,"read_only":1},
   {"fieldname":"request_timestamp","fieldtype":"Int","label":"Request Timestamp","reqd":1,"read_only":1}
