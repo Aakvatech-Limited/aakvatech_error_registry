@@ -1,0 +1,29 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-08-23 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": ["application_error","managed_site","first_seen","last_seen","occurrence_count","latest_local_error_log","app_version","git_commit_sha"],
+ "fields": [
+  {"fieldname":"application_error","fieldtype":"Link","label":"Application Error","options":"Application Error","reqd":1},
+  {"fieldname":"managed_site","fieldtype":"Link","label":"Managed Site","options":"Managed Site","reqd":1},
+  {"fieldname":"first_seen","fieldtype":"Datetime","label":"First Seen","read_only":1},
+  {"fieldname":"last_seen","fieldtype":"Datetime","label":"Last Seen","read_only":1},
+  {"default":"0","fieldname":"occurrence_count","fieldtype":"Int","label":"Occurrence Count","read_only":1},
+  {"fieldname":"latest_local_error_log","fieldtype":"Data","label":"Latest Local Error Log","read_only":1},
+  {"fieldname":"app_version","fieldtype":"Data","label":"App Version","read_only":1},
+  {"fieldname":"git_commit_sha","fieldtype":"Data","label":"Git Commit SHA","read_only":1}
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-08-23 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aakvatech Error Registry",
+ "name": "Application Error Site",
+ "owner": "Administrator",
+ "permissions": [{"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"System Manager","share":1,"write":1}],
+ "sort_field": "last_seen",
+ "sort_order": "DESC",
+ "states": []
+}
