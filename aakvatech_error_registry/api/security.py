@@ -7,7 +7,6 @@ from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
 
 MAX_CLOCK_SKEW_SECONDS = 300
-NONCE_TTL_SECONDS = 900
 
 
 def get_source_ip():
@@ -51,8 +50,8 @@ def verify_signed_request(body_bytes):
         _register_unapproved_ip(site, source_ip)
         frappe.throw("Source IP is not approved for this site", frappe.PermissionError)
 
-    nonce_key = hashlib.sha256((site_uuid + ":" + nonce).encode("utf-8")).hexdigest()
-    if frappe.db.exists("Error Request Nonce", nonce_key):
+    nonce_hash = hashlib.sha256((site_uuid + ":" + nonce).encode("utf-8")).hexdigest()
+    if frappe.db.exists("Error Request Nonce", {"nonce_hash": nonce_hash}):
         frappe.throw("Request nonce has already been used", frappe.AuthenticationError)
 
     try:
@@ -67,7 +66,7 @@ def verify_signed_request(body_bytes):
 
     frappe.get_doc({
         "doctype": "Error Request Nonce",
-        "name": nonce_key,
+        "nonce_hash": nonce_hash,
         "site_uuid": site_uuid,
         "nonce": nonce,
         "request_timestamp": request_ts,
@@ -88,8 +87,6 @@ def _register_unapproved_ip(site, source_ip):
             break
     if existing:
         existing.last_seen = now
-        if existing.status == "Rejected":
-            existing.status = "Pending"
     else:
         site.append("ip_addresses", {
             "ip_address": source_ip,
