@@ -1,0 +1,30 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-08-23 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": ["batch_key","batch_id","managed_site","site_uuid","received_on","reporting_date","status","observation_count","occurrence_count"],
+ "fields": [
+  {"fieldname":"batch_key","fieldtype":"Data","label":"Batch Key","reqd":1,"read_only":1,"unique":1},
+  {"fieldname":"batch_id","fieldtype":"Data","label":"Batch ID","reqd":1,"read_only":1},
+  {"fieldname":"managed_site","fieldtype":"Link","label":"Managed Site","options":"Managed Site","reqd":1,"read_only":1},
+  {"fieldname":"site_uuid","fieldtype":"Data","label":"Site UUID","reqd":1,"read_only":1},
+  {"fieldname":"received_on","fieldtype":"Datetime","label":"Received On","read_only":1},
+  {"fieldname":"reporting_date","fieldtype":"Date","label":"Reporting Date","read_only":1},
+  {"default":"Processed","fieldname":"status","fieldtype":"Select","label":"Status","options":"Processing\nProcessed\nRejected","read_only":1},
+  {"default":"0","fieldname":"observation_count","fieldtype":"Int","label":"Observation Count","read_only":1},
+  {"default":"0","fieldname":"occurrence_count","fieldtype":"Int","label":"Occurrence Count","read_only":1}
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-08-23 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Aakvatech Error Registry",
+ "name": "Error Intake Batch",
+ "owner": "Administrator",
+ "permissions": [{"read":1,"report":1,"role":"System Manager"}],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

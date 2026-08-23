@@ -4,8 +4,9 @@
  "creation": "2026-08-23 00:00:00.000000",
  "doctype": "DocType",
  "engine": "InnoDB",
- "field_order": ["application_error","managed_site","first_seen","last_seen","occurrence_count","latest_local_error_log","app_version","git_commit_sha"],
+ "field_order": ["site_error_key","application_error","managed_site","first_seen","last_seen","occurrence_count","latest_local_error_log","app_version","git_commit_sha"],
  "fields": [
+  {"fieldname":"site_error_key","fieldtype":"Data","label":"Site Error Key","reqd":1,"read_only":1,"unique":1},
   {"fieldname":"application_error","fieldtype":"Link","label":"Application Error","options":"Application Error","reqd":1},
   {"fieldname":"managed_site","fieldtype":"Link","label":"Managed Site","options":"Managed Site","reqd":1},
   {"fieldname":"first_seen","fieldtype":"Datetime","label":"First Seen","read_only":1},
