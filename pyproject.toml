@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aakvatech_error_registry"
+version = "0.1.0"
+description = "Centralized application error registry and secure cross-site defect aggregation for Frappe"
+authors = [{name = "Aakvatech Limited", email = "info@aakvatech.com"}]
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.bench.frappe-dependencies]
+frappe = ">=15.0.0,<16.0.0"
